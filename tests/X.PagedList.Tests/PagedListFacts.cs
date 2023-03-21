@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace X.PagedList.Tests;
+namespace GreatIdeas.PagedList.Tests;
 
 public class PagedListFacts
 {
@@ -19,23 +19,36 @@ public class PagedListFacts
     //	Assert.DoesNotThrow(act);
     //}
 
+    //[Fact]
+    //public void PageNumber_Below_One_Throws_ArgumentOutOfRange()
+    //{
+    //    //arrange
+    //    var data = new[] { 1, 2, 3 };
+
+    //    //act
+    //    Action action = () => data.ToPagedList(0, 1);
+
+    //    //assert
+    //    Assert.Throws<ArgumentOutOfRangeException>(action);
+    //}
+
     [Fact]
-    public void PageNumber_Below_One_Throws_ArgumentOutOfRange()
+    public void PageNumber_Below_One_Returns_One()
     {
         //arrange
         var data = new[] { 1, 2, 3 };
 
         //act
-        Action action = () => data.ToPagedList(0, 1);
+        var pagedList = data.ToPagedList(0, 1);
 
         //assert
-        Assert.Throws<ArgumentOutOfRangeException>(action);
+        Assert.Equal(1, pagedList.PageNumber);
     }
 
     [Fact]
     public async Task Argument_out_of_range()
     {
-        var queryable = (new List<Object>()).AsQueryable();
+        var queryable = new List<object>().AsQueryable();
         var list = queryable.ToList();
         var pagedList = list.ToPagedList();
 
@@ -104,17 +117,29 @@ public class PagedListFacts
         Assert.Equal(0, pagedList.Count);
     }
 
+    // [Fact]
+    // public void PageSize_Below_One_Throws_ArgumentOutOfRange()
+    // {
+    //     //arrange
+    //     var data = new[] { 1, 2, 3 };
+
+    //     //act
+    //     Action action = () => data.ToPagedList(1, 0);
+
+    //     //assert
+    //     Assert.Throws<ArgumentOutOfRangeException>(action);
+    // }
     [Fact]
-    public void PageSize_Below_One_Throws_ArgumentOutOfRange()
+    public void PageSize_Below_One_Returns_DefaultSize()
     {
         //arrange
         var data = new[] { 1, 2, 3 };
 
         //act
-        Action action = () => data.ToPagedList(1, 0);
+        var pagedList = data.ToPagedList(-1, 100);
 
         //assert
-        Assert.Throws<ArgumentOutOfRangeException>(action);
+        Assert.Equal(1, pagedList.PageNumber);
     }
 
     [Fact]

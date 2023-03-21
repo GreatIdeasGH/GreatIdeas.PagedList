@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\X.PagedList\X.PagedList.csproj" />
+    <ProjectReference Include="..\..\src\X.PagedList\GreatIdeas.PagedList.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,5 +1,5 @@
 ﻿using System.Linq;
 
-namespace X.PagedList.Tests;
+namespace GreatIdeas.PagedList.Tests;
 
 public interface IDbAsyncQueryProvider : IQueryProvider { }

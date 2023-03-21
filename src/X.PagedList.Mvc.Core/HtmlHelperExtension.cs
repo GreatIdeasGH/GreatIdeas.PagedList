@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Html;
+﻿using GreatIdeas.PagedList.Mvc.Core.Common;
+using Microsoft.AspNetCore.Html;
 using System;
-using X.PagedList.Web.Common;
 using IHtmlHelper = Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper;
 
-namespace X.PagedList.Mvc.Core;
+namespace GreatIdeas.PagedList.Mvc.Core;
 
 ///<summary>
 ///	Extension methods for generating paging controls that can operate on instances of IPagedList.
@@ -21,7 +21,7 @@ public static class HtmlHelperExtension
         IPagedList list,
         Func<int, string> generatePageUrl)
     {
-        return PagedListPager(html, list, generatePageUrl, new PagedListRenderOptions());
+        return html.PagedListPager(list, generatePageUrl, new PagedListRenderOptions());
     }
 
     ///<summary>
@@ -52,7 +52,7 @@ public static class HtmlHelperExtension
     ///<returns>Outputs the "Go To Page:" form HTML.</returns>
     public static HtmlString PagedListGoToPageForm(this IHtmlHelper html, IPagedList list, string formAction)
     {
-        return PagedListGoToPageForm(html, list, formAction, "page");
+        return html.PagedListGoToPageForm(list, formAction, "page");
     }
 
     ///<summary>
@@ -68,7 +68,7 @@ public static class HtmlHelperExtension
         string formAction,
         string inputFieldName)
     {
-        return PagedListGoToPageForm(html, list, formAction, new GoToFormRenderOptions(inputFieldName));
+        return html.PagedListGoToPageForm(list, formAction, new GoToFormRenderOptions(inputFieldName));
     }
 
     ///<summary>

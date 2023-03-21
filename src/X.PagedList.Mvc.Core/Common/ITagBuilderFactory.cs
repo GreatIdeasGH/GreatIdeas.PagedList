@@ -1,4 +1,4 @@
-﻿namespace X.PagedList.Web.Common;
+﻿namespace GreatIdeas.PagedList.Mvc.Core.Common;
 
 public interface ITagBuilderFactory
 {

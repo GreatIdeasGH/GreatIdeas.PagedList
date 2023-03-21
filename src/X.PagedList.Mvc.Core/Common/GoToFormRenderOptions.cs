@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace X.PagedList.Web.Common;
+namespace GreatIdeas.PagedList.Mvc.Core.Common;
 
 ///<summary>
 /// Options for configuring the output of <see cref = "HtmlHelper" />.
@@ -70,7 +70,7 @@ public class GoToFormRenderOptions
     /// <summary>
     /// Class that will be applied for input field
     /// </summary>
-    public String InputFieldClass { get; set; }
+    public string InputFieldClass { get; set; }
 
     /// <summary>
     /// Class that will be applied for submit button

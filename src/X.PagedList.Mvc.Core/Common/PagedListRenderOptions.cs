@@ -1,4 +1,4 @@
-﻿namespace X.PagedList.Web.Common;
+﻿namespace GreatIdeas.PagedList.Mvc.Core.Common;
 
 using System;
 using System.Collections.Generic;
@@ -12,7 +12,7 @@ public sealed class PagedListRenderOptions
     ///</summary>
     public PagedListRenderOptions()
     {
-        HtmlEncoder = System.Text.Encodings.Web.HtmlEncoder.Default;
+        HtmlEncoder = HtmlEncoder.Default;
         DisplayLinkToFirstPage = PagedListDisplayMode.IfNeeded;
         DisplayLinkToLastPage = PagedListDisplayMode.IfNeeded;
         DisplayLinkToPreviousPage = PagedListDisplayMode.IfNeeded;

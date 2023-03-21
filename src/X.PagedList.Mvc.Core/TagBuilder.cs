@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using X.PagedList.Web.Common;
 
-namespace X.PagedList.Mvc.Core;
+namespace GreatIdeas.PagedList.Mvc.Core;
 
+using GreatIdeas.PagedList.Mvc.Core.Common;
 using Microsoft.AspNetCore.Html;
 using System.IO;
 using System.Text.Encodings.Web;

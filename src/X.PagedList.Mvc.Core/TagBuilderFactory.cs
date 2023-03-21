@@ -1,6 +1,6 @@
-﻿using X.PagedList.Web.Common;
+﻿using GreatIdeas.PagedList.Mvc.Core.Common;
 
-namespace X.PagedList.Mvc.Core;
+namespace GreatIdeas.PagedList.Mvc.Core;
 
 internal sealed class TagBuilderFactory : ITagBuilderFactory
 {

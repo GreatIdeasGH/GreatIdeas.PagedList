@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace X.PagedList;
+namespace GreatIdeas.PagedList;
 
 /// <summary>
 /// Represents a subset of a collection of objects that can be individually accessed by index and containing

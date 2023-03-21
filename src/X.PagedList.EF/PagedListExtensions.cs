@@ -1,12 +1,11 @@
-﻿using System;
+﻿using JetBrains.Annotations;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using JetBrains.Annotations;
-using Microsoft.EntityFrameworkCore;
 
-namespace X.PagedList.EF;
+namespace GreatIdeas.PagedList.EF;
 
 /// <summary>
 /// EntityFramework extension methods designed to simplify the creation of instances of <see cref="PagedList{T}"/>.
@@ -33,12 +32,14 @@ public static class PagedListExtensions
     {
         if (pageNumber < 1)
         {
-            throw new ArgumentOutOfRangeException($"pageNumber = {pageNumber}. PageNumber cannot be below 1.");
+            //throw new ArgumentOutOfRangeException($"pageNumber = {pageNumber}. PageNumber cannot be below 1.");
+            pageNumber = 1;
         }
 
         if (pageSize < 1)
         {
-            throw new ArgumentOutOfRangeException($"pageSize = {pageSize}. PageSize cannot be less than 1.");
+            //throw new ArgumentOutOfRangeException($"pageSize = {pageSize}. PageSize cannot be less than 1.");
+            pageSize = BasePagedList<T>.DefaultPageSize;
         }
 
         var subset = new List<T>();
@@ -61,7 +62,7 @@ public static class PagedListExtensions
         if (totalCount > 0)
         {
             var skip = (pageNumber - 1) * pageSize;
-                
+
             subset.AddRange(await superset.Skip(skip).Take(pageSize).ToListAsync(cancellationToken).ConfigureAwait(false));
         }
 
@@ -83,5 +84,5 @@ public static class PagedListExtensions
     /// </returns>
     /// <seealso cref="PagedList{T}"/>
     public static Task<IPagedList<T>> ToPagedListAsync<T>(this IQueryable<T> superset, int pageNumber, int pageSize, int? totalSetCount = null) =>
-        ToPagedListAsync(superset, pageNumber, pageSize, totalSetCount, CancellationToken.None);
+        superset.ToPagedListAsync(pageNumber, pageSize, totalSetCount, CancellationToken.None);
 }

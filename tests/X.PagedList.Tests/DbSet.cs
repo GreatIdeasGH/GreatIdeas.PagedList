@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
 
-namespace X.PagedList.Tests;
+namespace GreatIdeas.PagedList.Tests;
 
 public class DbSet<T> : List<T> { }

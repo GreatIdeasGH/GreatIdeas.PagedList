@@ -1,7 +1,6 @@
-﻿using X.PagedList.Web.Common;
+﻿namespace GreatIdeas.PagedList.Mvc.Core.Fluent;
 
-namespace X.PagedList.Mvc.Core.Fluent;
-
+using GreatIdeas.PagedList.Mvc.Core.Common;
 using Microsoft.AspNetCore.Html;
 using System;
 

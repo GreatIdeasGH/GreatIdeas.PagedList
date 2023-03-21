@@ -1,4 +1,4 @@
-﻿namespace X.PagedList.Tests;
+﻿namespace GreatIdeas.PagedList.Tests;
 
 public class TestContext : DbContext
 {

@@ -1,5 +1,6 @@
-﻿namespace X.PagedList.Mvc.Core.Fluent;
+﻿namespace GreatIdeas.PagedList.Mvc.Core.Fluent;
 
+using GreatIdeas.PagedList;
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Linq;

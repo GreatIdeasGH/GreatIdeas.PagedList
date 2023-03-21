@@ -2,11 +2,11 @@
 @model IPagedList<string>
     
 @*import this so we get our HTML Helper*@
-@using X.PagedList.Mvc.Core; 
+@using GreatIdeas.PagedList.Mvc.Core; 
 
 @*import this so we can cast our list to IPagedList (only necessary because ViewBag is dynamic)*@
-@using X.PagedList;
-@using X.PagedList.Web.Common
+@using GreatIdeas.PagedList;
+@using GreatIdeas.PagedList.Web.Common
 
 <ul>
     @foreach (var name in Model)

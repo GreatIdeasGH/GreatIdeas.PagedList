@@ -1,6 +1,6 @@
 ﻿using JetBrains.Annotations;
 
-namespace X.PagedList;
+namespace GreatIdeas.PagedList;
 
 ///<summary>
 /// Non-enumerable version of the PagedList class.

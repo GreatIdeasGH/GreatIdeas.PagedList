@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using Example.DAL;
+using GreatIdeas.PagedList.EF;
 using Microsoft.AspNetCore.Mvc;
-using X.PagedList.EF;
 
 namespace Example.Website.Controllers;
 

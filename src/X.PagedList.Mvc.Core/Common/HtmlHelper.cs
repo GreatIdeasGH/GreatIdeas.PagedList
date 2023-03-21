@@ -1,10 +1,11 @@
-﻿using System;
+﻿using GreatIdeas.PagedList;
+using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 using System.Text;
 
-namespace X.PagedList.Web.Common;
+namespace GreatIdeas.PagedList.Mvc.Core.Common;
 
 public sealed class HtmlHelper
 {
@@ -274,8 +275,8 @@ public sealed class HtmlHelper
     public string PagedListPager(IPagedList pagedList, Func<int, string> generatePageUrl, PagedListRenderOptions options)
     {
         var list = pagedList ?? new StaticPagedList<int>(ImmutableList<int>.Empty, 1, 10, 0);
-        
-        if (options.Display == PagedListDisplayMode.Never || (options.Display == PagedListDisplayMode.IfNeeded && list.PageCount <= 1))
+
+        if (options.Display == PagedListDisplayMode.Never || options.Display == PagedListDisplayMode.IfNeeded && list.PageCount <= 1)
         {
             return null;
         }
@@ -310,14 +311,14 @@ public sealed class HtmlHelper
 
         //first
         if (options.DisplayLinkToFirstPage == PagedListDisplayMode.Always ||
-            (options.DisplayLinkToFirstPage == PagedListDisplayMode.IfNeeded && firstPageToDisplay > 1))
+            options.DisplayLinkToFirstPage == PagedListDisplayMode.IfNeeded && firstPageToDisplay > 1)
         {
             listItemLinks.Add(First(list, generatePageUrl, options));
         }
 
         //previous
         if (options.DisplayLinkToPreviousPage == PagedListDisplayMode.Always ||
-            (options.DisplayLinkToPreviousPage == PagedListDisplayMode.IfNeeded && !list.IsFirstPage))
+            options.DisplayLinkToPreviousPage == PagedListDisplayMode.IfNeeded && !list.IsFirstPage)
         {
             listItemLinks.Add(Previous(list, generatePageUrl, options));
         }
@@ -357,7 +358,7 @@ public sealed class HtmlHelper
 
             //if there are subsequent page numbers not displayed, show an ellipsis
             if (options.DisplayEllipsesWhenNotShowingAllPageNumbers &&
-                (firstPageToDisplay + pageNumbersToDisplay - 1) < list.PageCount)
+                firstPageToDisplay + pageNumbersToDisplay - 1 < list.PageCount)
             {
                 listItemLinks.Add(NextEllipsis(list, generatePageUrl, options, lastPageToDisplay));
             }
@@ -365,14 +366,14 @@ public sealed class HtmlHelper
 
         //next
         if (options.DisplayLinkToNextPage == PagedListDisplayMode.Always ||
-            (options.DisplayLinkToNextPage == PagedListDisplayMode.IfNeeded && !list.IsLastPage))
+            options.DisplayLinkToNextPage == PagedListDisplayMode.IfNeeded && !list.IsLastPage)
         {
             listItemLinks.Add(Next(list, generatePageUrl, options));
         }
 
         //last
         if (options.DisplayLinkToLastPage == PagedListDisplayMode.Always ||
-            (options.DisplayLinkToLastPage == PagedListDisplayMode.IfNeeded && lastPageToDisplay < list.PageCount))
+            options.DisplayLinkToLastPage == PagedListDisplayMode.IfNeeded && lastPageToDisplay < list.PageCount)
         {
             listItemLinks.Add(Last(list, generatePageUrl, options));
         }

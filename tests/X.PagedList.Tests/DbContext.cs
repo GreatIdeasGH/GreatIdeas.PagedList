@@ -1,3 +1,3 @@
-﻿namespace X.PagedList.Tests;
+﻿namespace GreatIdeas.PagedList.Tests;
 
 public class DbContext { }

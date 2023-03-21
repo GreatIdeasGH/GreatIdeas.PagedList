@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace X.PagedList.Tests;
+namespace GreatIdeas.PagedList.Tests;
 
 public class TestDbAsyncQueryProvider { }
 internal class TestDbAsyncQueryProvider<TEntity> : IDbAsyncQueryProvider

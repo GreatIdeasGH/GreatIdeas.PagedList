@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace X.PagedList;
+namespace GreatIdeas.PagedList;
 
 [PublicAPI]
 public class PagedList<T, TKey> : BasePagedList<T>
@@ -92,7 +92,7 @@ public class PagedList<T> : BasePagedList<T>
         if (TotalItemCount > 0 && superset != null)
         {
             var skip = (pageNumber - 1) * pageSize;
-            
+
             Subset.AddRange(superset.Skip(skip).Take(pageSize));
         }
     }
@@ -111,7 +111,7 @@ public class PagedList<T> : BasePagedList<T>
     /// <exception cref="ArgumentOutOfRangeException">The specified index cannot be less than zero.</exception>
     /// <exception cref="ArgumentOutOfRangeException">The specified page size cannot be less than one.</exception>
     public PagedList(IEnumerable<T> superset, int pageNumber, int pageSize)
-        : this(superset.AsQueryable<T>(), pageNumber, pageSize)
+        : this(superset.AsQueryable(), pageNumber, pageSize)
     {
     }
 
@@ -143,6 +143,6 @@ public class PagedList<T> : BasePagedList<T>
     /// <param name="pageSize"></param>
     /// <returns></returns>
     [PublicAPI]
-    public static PagedList<T> Empty(int pageNumber = 1, int pageSize = DefaultPageSize) => 
+    public static PagedList<T> Empty(int pageNumber = 1, int pageSize = DefaultPageSize) =>
         new(Array.Empty<T>(), pageNumber, pageSize);
 }

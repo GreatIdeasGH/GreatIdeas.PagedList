@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace X.PagedList;
+namespace GreatIdeas.PagedList;
 
 /// <summary>
 /// Represents a subset of a collection of objects that can be individually accessed by index and containing
@@ -41,12 +41,14 @@ public abstract class BasePagedList<T> : PagedListMetaData, IPagedList<T>
     {
         if (pageNumber < 1)
         {
-            throw new ArgumentOutOfRangeException($"pageNumber = {pageNumber}. PageNumber cannot be below 1.");
+            //throw new ArgumentOutOfRangeException($"pageNumber = {pageNumber}. PageNumber cannot be below 1.");
+            pageNumber = 1;
         }
 
         if (pageSize < 1)
         {
-            throw new ArgumentOutOfRangeException($"pageSize = {pageSize}. PageSize cannot be less than 1.");
+            //throw new ArgumentOutOfRangeException($"pageSize = {pageSize}. PageSize cannot be less than 1.");
+            pageSize = DefaultPageSize;
         }
 
         if (totalItemCount < 0)
