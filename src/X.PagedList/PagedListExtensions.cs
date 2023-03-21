@@ -113,12 +113,14 @@ public static class PagedListExtensions
     {
         if (pageNumber < 1)
         {
-            throw new ArgumentOutOfRangeException($"pageNumber = {pageNumber}. PageNumber cannot be below 1.");
+            // throw new ArgumentOutOfRangeException($"pageNumber = {pageNumber}. PageNumber cannot be below 1.");
+            pageNumber = 1;
         }
 
         if (pageSize < 1)
         {
-            throw new ArgumentOutOfRangeException($"pageSize = {pageSize}. PageSize cannot be less than 1.");
+            // throw new ArgumentOutOfRangeException($"pageSize = {pageSize}. PageSize cannot be less than 1.");
+            pageSize = 100;
         }
 
         if (superset == null)
